@@ -95,8 +95,8 @@ class ChatViewModel(
         }
     }
 
-    private fun applyEvent(current: ChatUiState, event: OrchestrationEvent): ChatUiState =
-        when (event.type) {
+    private fun applyEvent(current: ChatUiState, event: OrchestrationEvent): ChatUiState {
+        return when (event.type) {
             "thread.message-sent" -> {
                 val payload = event.payload.jsonObject
                 val msg = OrchestrationMessage(
@@ -133,7 +133,6 @@ class ChatViewModel(
                 val payload = event.payload.jsonObject
                 val sessionObj = payload["session"]?.jsonObject ?: return current
                 val statusStr = sessionObj["status"]?.jsonPrimitive?.content ?: "idle"
-                // Wire values are lowercase (e.g. "running"), enum entries match
                 val status = OrchestrationSessionStatus.entries.firstOrNull { it.name == statusStr }
                     ?: OrchestrationSessionStatus.idle
                 current.copy(
@@ -174,6 +173,7 @@ class ChatViewModel(
             }
             else -> current
         }
+    }
 
     private fun extractPendingApprovals(
         activities: List<OrchestrationThreadActivity>,
