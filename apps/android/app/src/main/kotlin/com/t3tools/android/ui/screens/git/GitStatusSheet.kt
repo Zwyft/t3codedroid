@@ -12,7 +12,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
@@ -100,7 +100,7 @@ fun GitStatusSheet(
                 Spacer(Modifier.height(12.dp))
                 Text("Changed files (${uiState.changedFiles.size})", style = MaterialTheme.typography.labelMedium)
                 Spacer(Modifier.height(4.dp))
-                Divider()
+                HorizontalDivider()
                 LazyColumn(
                     contentPadding = PaddingValues(vertical = 4.dp),
                     verticalArrangement = Arrangement.spacedBy(2.dp),
@@ -145,7 +145,7 @@ fun GitStatusSheet(
                 Spacer(Modifier.height(16.dp))
                 Text("Branches (${uiState.branches.size})", style = MaterialTheme.typography.labelMedium)
                 Spacer(Modifier.height(4.dp))
-                Divider()
+                HorizontalDivider()
                 LazyColumn(
                     contentPadding = PaddingValues(vertical = 4.dp),
                     verticalArrangement = Arrangement.spacedBy(2.dp),

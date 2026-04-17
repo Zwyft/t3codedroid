@@ -23,7 +23,7 @@ import java.util.concurrent.ConcurrentHashMap
 
 private const val TAG = "WsRpcClient"
 
-class RpcException(val message: String, val cause: JsonElement? = null) : Exception(message)
+class RpcException(errorMessage: String, val jsonCause: JsonElement? = null) : Exception(errorMessage)
 
 class WsRpcClient(private val connectionManager: WsConnectionManager) {
 
