@@ -13,10 +13,6 @@ import io.noties.markwon.Markwon
 import io.noties.markwon.ext.strikethrough.StrikethroughPlugin
 import io.noties.markwon.ext.tables.TablePlugin
 import io.noties.markwon.linkify.LinkifyPlugin
-import io.noties.markwon.syntax.Prism4jThemeDarkula
-import io.noties.markwon.syntax.SyntaxHighlightPlugin
-import io.noties.prism4j.Prism4j
-import io.noties.prism4j.annotations.PrismBundle
 
 @Composable
 fun MarkdownContent(
@@ -31,12 +27,6 @@ fun MarkdownContent(
             .usePlugin(StrikethroughPlugin.create())
             .usePlugin(TablePlugin.create(context))
             .usePlugin(LinkifyPlugin.create())
-            .usePlugin(
-                SyntaxHighlightPlugin.create(
-                    Prism4j(GrammarLocatorDef()),
-                    Prism4jThemeDarkula.create(),
-                ),
-            )
             .build()
     }
 
@@ -56,13 +46,3 @@ fun MarkdownContent(
         },
     )
 }
-
-// Needed by Prism4j to know which grammars to include
-@PrismBundle(
-    include = [
-        "kotlin", "java", "javascript", "typescript", "python",
-        "bash", "json", "yaml", "markdown", "css", "html", "sql",
-    ],
-    grammarLocatorClassName = ".GrammarLocatorDef",
-)
-class GrammarLocatorDef
