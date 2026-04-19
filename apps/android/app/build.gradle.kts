@@ -6,16 +6,15 @@ plugins {
 
 android {
     namespace = "com.t3tools.android"
-    compileSdk = 34
+    compileSdk = 33
 
     defaultConfig {
         applicationId = "com.t3tools.android"
         minSdk = 26
-        targetSdk = 34
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0.0"
         vectorDrawables { useSupportLibrary = true }
-        multiDexEnabled = true
     }
 
     buildTypes {
