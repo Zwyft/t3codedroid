@@ -46,8 +46,9 @@ android {
         kotlinCompilerExtensionVersion = "1.4.7"
     }
 
-    packaging {
-        resources { excludes += "/META-INF/{AL2.0,LGPL2.1}" }
+    packagingOptions {
+        resources.excludes.add("/META-INF/AL2.0")
+        resources.excludes.add("/META-INF/LGPL2.1")
     }
 }
 
