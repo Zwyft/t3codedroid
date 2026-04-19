@@ -15,7 +15,6 @@ android {
         versionCode = 1
         versionName = "1.0.0"
         vectorDrawables { useSupportLibrary = true }
-        multiDexEnabled = true
     }
 
     buildTypes {
@@ -31,7 +30,6 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
-        isCoreLibraryDesugaringEnabled = true
     }
 
     kotlinOptions {
@@ -53,10 +51,6 @@ android {
 }
 
 dependencies {
-    // Pin desugar library to v1.x — D8 3.x (bundled in AGP 7.3.1) cannot
-    // parse the v2 config format that desugar_jdk_libs 2.x introduces.
-    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.2.2")
-
     val composeBom = platform("androidx.compose:compose-bom:2023.06.01")
     implementation(composeBom)
     implementation("androidx.compose.ui:ui")
@@ -89,6 +83,5 @@ configurations.all {
     resolutionStrategy {
         force("org.jetbrains.kotlinx:kotlinx-serialization-core:1.5.1")
         force("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
-        force("com.android.tools:desugar_jdk_libs:1.2.2")
     }
 }
